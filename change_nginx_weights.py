@@ -40,12 +40,12 @@ def gen_control_list():
     s = set(POSSIBLE_WEIGHTS)
     POSSIBLE_WEIGHTS = list(s)
 
+    for w in POSSIBLE_WEIGHTS:
+        if len(w) < SRV_PER_CLUS * NUM_CLUS:
+            POSSIBLE_WEIGHTS.remove(w)
+
 
 gen_control_list()
-
-for w in POSSIBLE_WEIGHTS:
-    if len(w) < SRV_PER_CLUS * NUM_CLUS:
-        POSSIBLE_WEIGHTS.remove(w)
 
 
 def change_weights(wait_time):
